@@ -14,6 +14,7 @@ public class Atm {
         for (int i = 1; i <4; i++) { //For döngüsünü kullanıcının 3 kez yanlış giriş yaptığında sistemden atılması için kullandık.
             if (şifre==123321){ //Şifre doğruysa alt işlemleri yapmadan direk yapılacak işlem seçeneğine geçmesini istedik.
                 System.out.println("Şİfreniz doğru,başarılı bir şekilde giriiş yaptınız!");
+                break;
                             }
             else if (i==3) { //Şifre her yanlış girildiğinde i'nin yani yanlış giriş sayısı artacağından i değerimiz 3'e eşit olduğunda kullanıcı sistemden atılacak.
                 System.out.println("Çok Sayıda Hatalı Şifre Girdiniz Sistemden Çıkılıyor...");
