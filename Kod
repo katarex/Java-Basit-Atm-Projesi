@@ -61,7 +61,7 @@ public class Atm {
             System.out.println("Bakiyeniz:"+bakiye); //Bakiyemizi ekrana yazdırdık.
             break; //Bu komutu işlem sürekli tekrarlanmasın alt işleme geçebilsin diye kullandık.
        default: // kullanıcının yanlış girişinden sonra programı yeniden başlatıyoruz.
-           System.out.println("Hatalı giriş yaptınız,lütfen tekrar deneyin");
+           System.err.println("Hatalı giriş yaptınız,lütfen tekrar deneyin");
            
         }
     }
