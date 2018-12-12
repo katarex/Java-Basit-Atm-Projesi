@@ -1,0 +1,69 @@
+import java.util.Scanner; //Klavyeden girdi alacağımız için scanner sınıfını tanımladık.
+public class Atm {
+
+    public static void main(String[] args) {
+      int bakiye=0;//Bakiyemiz başlangıç olarak "0".
+      int şifre; //Şifremizi tanımladık.
+      int yenibakiye; //Yeni bakiyemizi tanımladık.
+      int yapılacakişlem; //Yapılacak işlemi tanımladık.
+      Scanner read = new Scanner(System.in); //Klavyeden girdi almak için..
+      System.out.println("Merhaba Saltan Bank Ltd.Şti'ye Hoşgeldiniz"); // Kendinize göre kişiselleştirebilirsiniz.
+      System.out.println("Bankamızın size özel tekliflerini öğrenmek için lütfen 0212 544 20 85 numaralı müşteri hizmetlerimizden yardım alınız"); // Kendinize göre kişiselleştirebilirsiniz.
+        System.out.println("Lütfen şifrenizi giriniz:"); //Şifreyi alıyoruz kullanıcıda her hangi bir veri tabanı kullanmadığımız için şifremiz sabit.
+        şifre=read.nextInt(); //Şifremizi aldık.
+        for (int i = 1; i <4; i++) { //For döngüsünü kullanıcının 3 kez yanlış giriş yaptığında sistemden atılması için kullandık.
+            if (şifre==123321){ //Şifre doğruysa alt işlemleri yapmadan direk yapılacak işlem seçeneğine geçmesini istedik.
+                System.out.println("Şİfreniz doğru,başarılı bir şekilde giriiş yaptınız!");
+                            }
+            else if (i==3) { //Şifre her yanlış girildiğinde i'nin yani yanlış giriş sayısı artacağından i değerimiz 3'e eşit olduğunda kullanıcı sistemden atılacak.
+                System.out.println("Çok Sayıda Hatalı Şifre Girdiniz Sistemden Çıkılıyor...");
+                System.exit(0);
+            }
+            else { //Burda şifremizin her yanlış girildiğinde tekrar şifre girdisi almayı sağladık.
+                System.out.println("Hatalı Şifre Girdiniz!");
+                System.out.println("Lütfen şifrenizi giriniz:");
+                şifre=read.nextInt();
+            }
+        }      
+      System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"); // case'lerde kullanacağımız işlemleri burdan seçtik.
+      System.out.println("Para çekmek için 1'e ");
+      System.out.println("Para yatırmak için 2'e");
+      System.out.println("Şifrenizi değiştirmek için 3'e ");
+      System.out.println("Bakiyenizi öğrenmek için 4'e basınız");
+      System.out.println("Lütfen Yapılacak İşlemi Giriniz:"); //yapılacak işlemi istedik.
+      System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+      yapılacakişlem=read.nextInt(); //yapılacak işlemi aldık.
+       switch (yapılacakişlem) {
+      case 1:System.out.print("Çekilecek Tutarı Giriniz:"); //case1'e yukarda da belirttiğimiz gibi sırasıyla işlemler tanımladık.
+       int çekilecektutar; //çekilecek tutarı tanımladık.
+       çekilecektutar= read.nextInt(); //çekilecek tutarı aldık.
+       yenibakiye=bakiye-çekilecektutar; //burda yeni bakiyemizi eski bakiyemizden çekilecek tutarı çıkartarak bulduk.
+           System.out.println("İşlem başarılı!");
+           System.out.println("Yeni bakiyeniz:"+yenibakiye); // yeni bakiyemizi yazdırdık.
+        break; //Bu komutu işlem sürekli tekrarlanmasın alt işleme geçebilsin diye kullandık.
+       case 2: //case2'e yukarda da belirttiğimiz gibi sırasıyla işlemler tanımladık.
+           System.out.println("Yatırılacak tutarı giriniz:");  //yatırılacak tutarı istedik.
+           int yatırılacaktutar; // yatırılacak tutarı tanımladık.
+           yatırılacaktutar=read.nextInt(); // yatırlacak tutarı aldık
+           yenibakiye=bakiye+yatırılacaktutar; // yatırılacak tutarı bakiyemize ekleyip yeni bakiyemizi bulduk.
+           System.out.println("İşlem başarılı!");
+               System.out.println("Yeni bakiyeniz:"+yenibakiye); // yeni bakiyemizi yazdırdık.
+        break; //Bu komutu işlem sürekli tekrarlanmasın alt işleme geçebilsin diye kullandık.
+       case 3: //case3'e yukarda da belirttiğimiz gibi sırasıyla işlemler tanımladık.
+           System.out.println("Yeni şifrenizi giriniz:"); // kullanıcıdan yeni şifre girmesini istedik.
+           int yenişifre; // yeni şifremizi tanımladık.
+           yenişifre=read.nextInt(); // yeni şifremizi aldık.
+           System.out.println("İşlem başarılı!");
+               System.out.println("Yeni şifreniz:"+yenişifre); // yeni şifremizi yazdırdık.
+               break; //Bu komutu işlem sürekli tekrarlanmasın alt işleme geçebilsin diye kullandık.
+               
+        case 4: //case4'e yukarda da belirttiğimiz gibi sırasıyla işlemler tanımladık.
+            System.out.println("Bakiyeniz:"+bakiye); //Bakiyemizi ekrana yazdırdık.
+            break; //Bu komutu işlem sürekli tekrarlanmasın alt işleme geçebilsin diye kullandık.
+       default: // kullanıcının yanlış girişinden sonra programı yeniden başlatıyoruz.
+           System.out.println("Hatalı giriş yaptınız,lütfen tekrar deneyin");
+           
+        }
+    }
+    
+}
