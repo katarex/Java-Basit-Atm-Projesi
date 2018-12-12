@@ -20,8 +20,8 @@ public class Atm {
                 System.exit(0);
             }
             else { //Burda şifremizin her yanlış girildiğinde tekrar şifre girdisi almayı sağladık.
-                System.out.println("Hatalı Şifre Girdiniz!");
-                System.out.println("Lütfen şifrenizi giriniz:");
+                System.err.println("Hatalı Şifre Girdiniz!");
+                System.err.println("Lütfen şifrenizi giriniz:");
                 şifre=read.nextInt();
             }
         }      
